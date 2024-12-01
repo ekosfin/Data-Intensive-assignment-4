@@ -75,7 +75,7 @@ def delete_data_from_both(locations, connection):
     
     try:
         cursor = connection.cursor()
-        cursor.execute("DELETE FROM locations WHERE name = %s", (name))
+        cursor.execute("DELETE FROM locations WHERE name = %s", (name,))
         connection.commit()
         print(f"Data with name '{name}' deleted from PostgreSQL.")
         result = locations.delete_one({"name": name})
